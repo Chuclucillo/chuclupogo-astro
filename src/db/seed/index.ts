@@ -138,23 +138,9 @@ const typeEffectiveness = [
     { attackingTypeId: 18, defendingTypeId: 16, multiplier: 1.6 },
     { attackingTypeId: 18, defendingTypeId: 17, multiplier: 0.625 }
 ];
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { XataClient } from '../../xata'; // Generated client
-import pg from 'pg';
-import { configDotenv } from "dotenv";
-configDotenv();
-
-
+import {db, client} from '../index.ts';
 import { types } from '../schema/types.ts';
 import { effectiveness} from "../schema/effectiveness.ts";
-
-const Client = pg.Client;
-const xata = new XataClient({
-    apiKey: process.env.XATA_API_KEY,
-    branch: process.env.XATA_BRANCH,
-});
-const client = new Client({ connectionString: xata.sql.connectionString });
-const db = drizzle(client);
 
 async function seed() {
     try {
