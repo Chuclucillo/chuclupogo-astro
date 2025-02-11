@@ -1,0 +1,434 @@
+{
+  "tables": [
+    {
+      "name": "effectiveness",
+      "checkConstraints": {},
+      "foreignKeys": {},
+      "primaryKey": [
+        "id"
+      ],
+      "uniqueConstraints": {},
+      "columns": [
+        {
+          "name": "attacking_type_id",
+          "type": "int",
+          "notNull": true,
+          "unique": false,
+          "defaultValue": null,
+          "comment": ""
+        },
+        {
+          "name": "defending_type_id",
+          "type": "int",
+          "notNull": true,
+          "unique": false,
+          "defaultValue": null,
+          "comment": ""
+        },
+        {
+          "name": "id",
+          "type": "int",
+          "notNull": true,
+          "unique": true,
+          "defaultValue": "nextval('bb_e3h0gatvml49f8ic6qba00blcs_ltlmo8.effectiveness_id_seq'::regclass)",
+          "comment": ""
+        },
+        {
+          "name": "multiplier",
+          "type": "float",
+          "notNull": true,
+          "unique": false,
+          "defaultValue": "1.0",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "name": "moves",
+      "checkConstraints": {},
+      "foreignKeys": {},
+      "primaryKey": [
+        "id"
+      ],
+      "uniqueConstraints": {},
+      "columns": [
+        {
+          "name": "duration",
+          "type": "int",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "0",
+          "comment": ""
+        },
+        {
+          "name": "elite",
+          "type": "bool",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "false",
+          "comment": ""
+        },
+        {
+          "name": "energy",
+          "type": "int",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "0",
+          "comment": ""
+        },
+        {
+          "name": "id",
+          "type": "int",
+          "notNull": true,
+          "unique": true,
+          "defaultValue": "nextval('bb_e3h0gatvml49f8ic6qba00blcs_ltlmo8.moves_id_seq'::regclass)",
+          "comment": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "notNull": true,
+          "unique": false,
+          "defaultValue": null,
+          "comment": ""
+        },
+        {
+          "name": "power",
+          "type": "int",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "0",
+          "comment": ""
+        },
+        {
+          "name": "quick_move",
+          "type": "bool",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "true",
+          "comment": ""
+        },
+        {
+          "name": "type_id",
+          "type": "int",
+          "notNull": true,
+          "unique": false,
+          "defaultValue": null,
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "name": "options",
+      "checkConstraints": {},
+      "foreignKeys": {},
+      "primaryKey": [
+        "key"
+      ],
+      "uniqueConstraints": {},
+      "columns": [
+        {
+          "name": "key",
+          "type": "string",
+          "notNull": true,
+          "unique": true,
+          "defaultValue": null,
+          "comment": ""
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": null,
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "name": "pokemon",
+      "checkConstraints": {},
+      "foreignKeys": {},
+      "primaryKey": [
+        "id"
+      ],
+      "uniqueConstraints": {},
+      "columns": [
+        {
+          "name": "attack",
+          "type": "int",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "1",
+          "comment": ""
+        },
+        {
+          "name": "candy_distance",
+          "type": "int",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "1",
+          "comment": ""
+        },
+        {
+          "name": "defense",
+          "type": "int",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "1",
+          "comment": ""
+        },
+        {
+          "name": "dex_number",
+          "type": "int",
+          "notNull": true,
+          "unique": false,
+          "defaultValue": null,
+          "comment": ""
+        },
+        {
+          "name": "gender",
+          "type": "float",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "0.5",
+          "comment": ""
+        },
+        {
+          "name": "generation",
+          "type": "int",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "1",
+          "comment": ""
+        },
+        {
+          "name": "hp",
+          "type": "int",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "1",
+          "comment": ""
+        },
+        {
+          "name": "id",
+          "type": "int",
+          "notNull": true,
+          "unique": true,
+          "defaultValue": "nextval('bb_e3h0gatvml49f8ic6qba00blcs_ltlmo8.pokemon_id_seq'::regclass)",
+          "comment": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "notNull": true,
+          "unique": false,
+          "defaultValue": null,
+          "comment": ""
+        },
+        {
+          "name": "rarity",
+          "type": "string",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "'regular'::character varying",
+          "comment": ""
+        },
+        {
+          "name": "special_attack",
+          "type": "int",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "1",
+          "comment": ""
+        },
+        {
+          "name": "special_defense",
+          "type": "int",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "1",
+          "comment": ""
+        },
+        {
+          "name": "speed",
+          "type": "int",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "1",
+          "comment": ""
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "notNull": false,
+          "unique": false,
+          "defaultValue": "'normal'::character varying",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "name": "pokemon_moves",
+      "checkConstraints": {},
+      "foreignKeys": {
+        "pokemon_moves_move_id_moves_id_fk": {
+          "name": "pokemon_moves_move_id_moves_id_fk",
+          "columns": [
+            "move_id"
+          ],
+          "referencedTable": "moves",
+          "referencedColumns": [
+            "id"
+          ],
+          "onDelete": "NO ACTION"
+        },
+        "pokemon_moves_pokemon_id_pokemon_id_fk": {
+          "name": "pokemon_moves_pokemon_id_pokemon_id_fk",
+          "columns": [
+            "pokemon_id"
+          ],
+          "referencedTable": "pokemon",
+          "referencedColumns": [
+            "id"
+          ],
+          "onDelete": "NO ACTION"
+        }
+      },
+      "primaryKey": [
+        "id"
+      ],
+      "uniqueConstraints": {},
+      "columns": [
+        {
+          "name": "id",
+          "type": "int",
+          "notNull": true,
+          "unique": true,
+          "defaultValue": "nextval('bb_e3h0gatvml49f8ic6qba00blcs_ltlmo8.pokemon_moves_id_seq'::regclass)",
+          "comment": ""
+        },
+        {
+          "name": "move_id",
+          "type": "link",
+          "link": {
+            "table": "moves"
+          },
+          "notNull": true,
+          "unique": false,
+          "defaultValue": null,
+          "comment": ""
+        },
+        {
+          "name": "pokemon_id",
+          "type": "link",
+          "link": {
+            "table": "pokemon"
+          },
+          "notNull": true,
+          "unique": false,
+          "defaultValue": null,
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "name": "pokemon_types",
+      "checkConstraints": {},
+      "foreignKeys": {
+        "pokemon_types_pokemon_id_pokemon_id_fk": {
+          "name": "pokemon_types_pokemon_id_pokemon_id_fk",
+          "columns": [
+            "pokemon_id"
+          ],
+          "referencedTable": "pokemon",
+          "referencedColumns": [
+            "id"
+          ],
+          "onDelete": "NO ACTION"
+        },
+        "pokemon_types_type_id_types_id_fk": {
+          "name": "pokemon_types_type_id_types_id_fk",
+          "columns": [
+            "type_id"
+          ],
+          "referencedTable": "types",
+          "referencedColumns": [
+            "id"
+          ],
+          "onDelete": "NO ACTION"
+        }
+      },
+      "primaryKey": [
+        "id"
+      ],
+      "uniqueConstraints": {},
+      "columns": [
+        {
+          "name": "id",
+          "type": "int",
+          "notNull": true,
+          "unique": true,
+          "defaultValue": "nextval('bb_e3h0gatvml49f8ic6qba00blcs_ltlmo8.pokemon_types_id_seq'::regclass)",
+          "comment": ""
+        },
+        {
+          "name": "pokemon_id",
+          "type": "link",
+          "link": {
+            "table": "pokemon"
+          },
+          "notNull": true,
+          "unique": false,
+          "defaultValue": null,
+          "comment": ""
+        },
+        {
+          "name": "type_id",
+          "type": "link",
+          "link": {
+            "table": "types"
+          },
+          "notNull": true,
+          "unique": false,
+          "defaultValue": null,
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "name": "types",
+      "checkConstraints": {},
+      "foreignKeys": {},
+      "primaryKey": [
+        "id"
+      ],
+      "uniqueConstraints": {
+        "types_name_unique": {
+          "name": "types_name_unique",
+          "columns": [
+            "name"
+          ]
+        }
+      },
+      "columns": [
+        {
+          "name": "id",
+          "type": "int",
+          "notNull": true,
+          "unique": true,
+          "defaultValue": null,
+          "comment": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "notNull": true,
+          "unique": true,
+          "defaultValue": null,
+          "comment": ""
+        }
+      ]
+    }
+  ]
+}

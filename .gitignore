@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+#Xata db
+.xata
+.xatarc
+/src/xata.ts
+/drizzle/meta/_journal.json
+/src/db/out/
