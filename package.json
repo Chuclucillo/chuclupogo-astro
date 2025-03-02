@@ -10,16 +10,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
-    "@astrojs/cloudflare": "^11.0.5",
-    "@astrojs/react": "^3.6.2",
-    "@astrojs/sitemap": "^3.1.6",
-    "@astrojs/tailwind": "^5.1.1",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/cloudflare": "^12.2.3",
+    "@astrojs/react": "^4.2.0",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^6.0.0",
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
     "@xata.io/client": "^0.0.0-next.v93343b9646f57a1e5c51c35eccf0767c2bb80baa",
     "@xata.io/drizzle": "^0.0.24",
-    "astro": "^4.15.8",
+    "astro": "^5.2.5",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.35.3",
     "pg": "^8.13.1",
@@ -30,6 +30,6 @@
   },
   "devDependencies": {
     "@types/pg": "^8.11.11",
-    "drizzle-kit": "^0.26.2"
+    "drizzle-kit": "^0.18.1"
   }
 }
