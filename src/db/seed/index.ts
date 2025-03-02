@@ -1,3 +1,5 @@
+import {options} from "@db/schema/options.ts";
+
 export const pokemonTypes = [
     { id: 1, name: 'Normal' },    // id: 1
     { id: 2, name: 'Fire' },      // id: 2
@@ -138,43 +140,27 @@ const typeEffectiveness = [
     { attackingTypeId: 18, defendingTypeId: 16, multiplier: 1.6 },
     { attackingTypeId: 18, defendingTypeId: 17, multiplier: 0.625 }
 ];
-import {db, client} from '../index.ts';
-import { types } from '../schema/types.ts';
-import { effectiveness} from "../schema/effectiveness.ts";
+import DatabaseManager from '@db/index';
+import { types } from '@db/schema/types.ts';
+import { effectiveness} from "@db/schema/effectiveness.ts";
+import {eq} from "drizzle-orm";
 
 async function seed() {
-    try {
-        await client.connect();
-        console.log('Connected to database');
-
-        // 1. Insertar tipos Pokémon
-        console.log('Seeding types...');
+    const dbManager = DatabaseManager.getInstance();
+    // 1. Insertar tipos Pokémon
+    console.log('Seeding types...');
+    await dbManager.query(async (db) => {
         await db.delete(types);
         await db.insert(types).values(pokemonTypes);
+    });
 
-
-        // 2. Obtener IDs de los tipos insertados
-        // const typeEntries = await db.select().from(types);
-        // const typeMap = new Map(typeEntries.map(t => [t.name, t.id]));
-
-        // 3. Insertar efectividades
-        console.log('Seeding types effectiveness...');
-        // const effectivenessData = typeEffectiveness.map(entry => ({
-        //     attackingTypeId: typeMap.get(entry.attackingType)!,
-        //     defendingTypeId: typeMap.get(entry.defendingType)!,
-        //     multiplier: entry.multiplier
-        // }));
+    // 2. Insertar efectividades
+    console.log('Seeding types effectiveness...');
+    await dbManager.query(async (db) => {
         await db.delete(effectiveness);
         await db.insert(effectiveness).values(typeEffectiveness);
-
-
-        console.log('Seeding completed!');
-    } catch (error) {
-        console.error('Error during seeding:', error);
-    } finally {
-        await client.end();
-        console.log('Disconnected from database');
-    }
+    });
+    console.log('Seeding completed!');
 }
 
 seed().catch((err) => {
